@@ -1,14 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-app
+  name : ansiiartify
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/PeterBunin/AnciiArtify.git
-    targetRevision: HEAD
-    path: demo-app
   destination:
-    server: https://kubernetes.default.svc
-    namespace: demo
+    name : in-cluster
+    namespace: demo-app
+  source:
+    path : "argo"
+    repoURL: "git@github.com:PeterBunin/AnciiArtify.git"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune : true
+      selfHeal: true

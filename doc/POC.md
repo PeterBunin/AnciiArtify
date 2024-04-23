@@ -1,4 +1,4 @@
-<video src="demo-1.mp4" controls></video>
+<video src="https://github.com/PeterBunin/AnciiArtify/blob/main/doc/demo-1.mp4" controls></video>
 
 ![](demo-1.mp4)
 
